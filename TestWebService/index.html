@@ -1,0 +1,38 @@
+<pre>
+我的第一个 WebService 项目 ， 创建步骤：
+
+
+1 ：
+javac -d ./ InfTestWebService.java
+javac -d ./ TestWebService.java
+在 src 文件夹中生成 class 文件 ， 放入 WEB-INF\classes 文件夹下
+
+
+2 ：
+WEB-INF\classes\logging.properties 文件用于输出日志
+
+
+3 ：
+将 jax-ws 相关jar包放入 lib 文件夹中
+
+jax-ws Git : https://github.com/javaee/metro-jax-ws
+jax-ws 官网 : https://javaee.github.io/metro-jax-ws/
+jax-ws 关联jar包下载地址 : https://repo1.maven.org/maven2/com/sun/xml/ws/jaxws-ri/2.3.0/jaxws-ri-2.3.0.zip 。将压缩包中的 lib 文件夹全部复制过来。
+
+
+4 ：
+建立 sun-jaxws.xml 文件
+
+
+5 ：
+修改 web.xml 文件
+添加 listener 和 servlet 标签
+
+
+6 ：
+最后将整个项目放入 tomcat 的 webapps 文件夹下
+
+
+7 ：
+运行 tomcat 服务器， 访问网址 ： http://127.0.0.1:8080/TestWebService/test/ws?wsdl 。 若创建成功，则可看到 wsdl 文件信息
+</pre>
