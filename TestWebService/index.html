@@ -1,10 +1,12 @@
-<pre>
-我的第一个 WebService 项目 ， 创建步骤：
+﻿<pre>
+WebService 创建步骤：
 
 
 1 ：
-javac -d ./ InfTestWebService.java
-javac -d ./ TestWebService.java
+javac -cp ..\WEB-INF\lib\ksoap2-2.6.4.jar -d . WebSrv.java
+java -cp ..\WEB-INF\lib\ksoap2-2.6.4.jar;. tk.ziniulian.util.dao.WebSrv  // 测试 WebSrv
+javac -d .\ InfTestWebService.java
+javac -cp ..\WEB-INF\lib\gson-2.8.2.jar;. -d .\ TestWebService.java
 在 src 文件夹中生成 class 文件 ， 放入 WEB-INF\classes 文件夹下
 
 
@@ -18,6 +20,13 @@ WEB-INF\classes\logging.properties 文件用于输出日志
 jax-ws Git : https://github.com/javaee/metro-jax-ws
 jax-ws 官网 : https://javaee.github.io/metro-jax-ws/
 jax-ws 关联jar包下载地址 : https://repo1.maven.org/maven2/com/sun/xml/ws/jaxws-ri/2.3.0/jaxws-ri-2.3.0.zip 。将压缩包中的 lib 文件夹全部复制过来。
+
+ksoap2 Git : https://github.com/lishuyuan/ksoap2-android	（ ksoap2 ： 一个调用 WebService 的 jar 包 ）
+ksoap2 下载地址 : https://github.com/lishuyuan/ksoap2-android/blob/master/m2-repo/com/google/code/ksoap2-android/ksoap2-android-assembly/2.6.4/ksoap2-android-assembly-2.6.4-jar-with-dependencies.jar
+
+gson Git : https://github.com/google/gson	（ gson ： 一个JSON格式转换的 jar 包 ）
+gson 官网 : https://search.maven.org/artifact/com.google.code.gson/gson/2.8.2/jar
+gson 下载地址 : https://search.maven.org/remotecontent?filepath=com/google/code/gson/gson/2.8.2/gson-2.8.2.jar
 
 
 4 ：
@@ -34,5 +43,5 @@ jax-ws 关联jar包下载地址 : https://repo1.maven.org/maven2/com/sun/xml/ws/
 
 
 7 ：
-运行 tomcat 服务器， 访问网址 ： http://127.0.0.1:8080/TestWebService/test/ws?wsdl 。 若创建成功，则可看到 wsdl 文件信息
+运行 tomcat 服务器， 访问网址 ： http://127.0.0.1:8080/TestWebService/ws?wsdl 。 若创建成功，则可看到 wsdl 文件信息
 </pre>
