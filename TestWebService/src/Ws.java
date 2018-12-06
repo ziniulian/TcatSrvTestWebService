@@ -1,16 +1,16 @@
-package tk.ziniulian.wstest.imp;
+package com.invengo.lzr.ws2ws.imp;
 
 import java.util.List;
 import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.xml.ws.BindingType;
 import com.google.gson.Gson;
-import tk.ziniulian.wstest.InfTestWebService;
+import com.invengo.lzr.ws2ws.InfWs;
 import tk.ziniulian.util.dao.WebSrv;
 
-@WebService(endpointInterface = "tk.ziniulian.wstest.InfTestWebService")
+@WebService(endpointInterface = "com.invengo.lzr.ws2ws.InfWs")
 // @BindingType(value=javax.xml.ws.soap.SOAPBinding.SOAP12HTTP_BINDING)    // 使用 SOAP1.2 协议
-public class TestWebService implements InfTestWebService {
+public class Ws implements InfWs {
 	private Gson gson = new Gson();
     private List<String> tls = new ArrayList<String>();
     private WebSrv ws = new WebSrv("", "");

@@ -13,13 +13,13 @@
         </listener-class>
     </listener>
     <servlet>
-        <servlet-name>Wstest</servlet-name>
+        <servlet-name>Ws2Ws</servlet-name>
         <servlet-class>
             com.sun.xml.ws.transport.http.servlet.WSServlet
         </servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Wstest</servlet-name>
+        <servlet-name>Ws2Ws</servlet-name>
         <url-pattern>/ws</url-pattern>
     </servlet-mapping>
 

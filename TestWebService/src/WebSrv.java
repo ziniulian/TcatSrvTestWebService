@@ -46,7 +46,7 @@ public class WebSrv {
 		}
 
 		// SoapSerializationEnvelope msg = new SoapSerializationEnvelope(SoapEnvelope.VER11);	// SOAP1.1 协议
-		SoapSerializationEnvelope msg = new SoapSerializationEnvelope(SoapEnvelope.VER12);	// SOAP1.2 协议
+		SoapSerializationEnvelope msg = new SoapSerializationEnvelope(SoapEnvelope.VER12);
 		msg.bodyOut = req;
 		// msg.dotNet = true;	// 调用 .net版服务器的 WebService
 		HttpTransportSE ht = new HttpTransportSE(url);
@@ -58,15 +58,9 @@ public class WebSrv {
 				r = res.toString();
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 
 		return r;
-	}
-
-	public static void main (String[] args) {
-		// 测试
-		WebSrv ws = new WebSrv("http://192.169.0.35:8888/room/DataWebServicePort?wsdl", "http://192.169.0.35:8888/");
-		System.out.println(ws.qry("hello"));
 	}
 }
