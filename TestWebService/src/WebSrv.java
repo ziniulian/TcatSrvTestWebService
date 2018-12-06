@@ -1,6 +1,9 @@
 package tk.ziniulian.util.dao;
 
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
@@ -31,17 +34,15 @@ public class WebSrv {
 		return this;
 	}
 
-	public String qry (String mnam) {
-		return qry(mnam, null, null);
-	}
-
-	public String qry (String mnam, List<String> ks, List<String> vs) {
+	public String qry (String mnam, LinkedHashMap<String, String> p) {
 		String r = null;
 
 		SoapObject req = new SoapObject(npc, mnam);
-		if (vs != null) {
-			for (int i = 0; i < ks.size(); i ++) {
-				req.addProperty(ks.get(i), vs.get(i));
+		if (p != null) {
+			Iterator<Entry<String, String>> iterator = p.entrySet().iterator();
+			while (iterator.hasNext()) {
+				Entry<String, String> entry = iterator.next();
+				req.addProperty(entry.getKey(), entry.getValue());
 			}
 		}
 

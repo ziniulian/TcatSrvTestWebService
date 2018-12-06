@@ -13,5 +13,5 @@ public interface InfWs {
 
     @WebMethod
     @WebResult(name="r")
-    String call (@WebParam(name="meth") String meth, @WebParam(name="pnam") String pnam, @WebParam(name="parm") String parm);
+    String call (@WebParam(name="meth") String meth, @WebParam(name="parm") String parm);
 }
