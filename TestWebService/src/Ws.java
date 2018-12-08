@@ -20,14 +20,14 @@ public class Ws implements InfWs {
     private WebSrv ws = new WebSrv("", "");
 
 	public Ws () {
-		String npc = "http://127.0.0.1:8888/";
+		String u = "http://127.0.0.1:8888/ws";
 		try {
-			npc = InetAddress.getLocalHost().getHostAddress();
-			npc = "http://" + npc + ":8888/";
+			u = InetAddress.getLocalHost().getHostAddress();
+			u = "http://" + u + ":8888/room/DataWebServicePort";
 		} catch (Exception e) {
 			// e.printStackTrace();
 		}
-		ws = new WebSrv(npc + "room/DataWebServicePort", npc);
+		ws = new WebSrv(u, "http://sys.action.web.cw.com/");
 	}
 
     public String setWs (String url, String npc) {
@@ -51,7 +51,7 @@ public class Ws implements InfWs {
         }
 		r = ws.qry(meth, m);
         if (r == null) {
-            r = "{\"ok\":false, \"error\":\"ws2ws : 远程服务连接失败！\"}";
+            r = "{\"ok\":false, \"error\":\"数据接口 : 远程服务连接失败！\"}";
         }
         return r;
     }
