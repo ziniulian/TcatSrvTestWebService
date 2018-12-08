@@ -35,7 +35,7 @@ public class Ws implements InfWs {
         return (
             "{\"ok\":true, \"dat\":{\"url\":\""
             + url + "\",\"npc\":\""
-            + npc + "\"}"
+            + npc + "\"}}"
         );
     }
 
@@ -51,11 +51,7 @@ public class Ws implements InfWs {
         }
 		r = ws.qry(meth, m);
         if (r == null) {
-            r = "{\"ok\":false}";
-        } else if (r.startsWith("[") || r.startsWith("{")) {
-            r = "{\"ok\":true, \"dat\":" + r + "}";
-        } else {
-            r = "{\"ok\":false, \"msg\":\"" + r + "\"}";
+            r = "{\"ok\":false, \"error\":\"ws2ws : 远程服务连接失败！\"}";
         }
         return r;
     }
