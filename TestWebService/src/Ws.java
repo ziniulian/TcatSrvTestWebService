@@ -2,7 +2,9 @@ package com.invengo.lzr.ws2ws.imp;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.net.InetAddress;
+import java.util.Properties;
+import java.io.FileReader;
+import java.io.BufferedReader;
 import javax.jws.WebService;
 import com.invengo.lzr.ws2ws.InfWs;
 import tk.ziniulian.util.dao.WebSrv;
@@ -18,14 +20,20 @@ public class Ws implements InfWs {
 	private Gson gson = new Gson();
 	private Type tm = new TypeToken<LinkedHashMap<String, String>>(){}.getType();
     private WebSrv ws = new WebSrv("", "");
+	private Properties properties = new Properties();
 
 	public Ws () {
-		String u = "http://127.0.0.1:8888/ws";
+		String u = "http://127.0.0.1/";
 		try {
-			u = InetAddress.getLocalHost().getHostAddress();
-			u = "http://" + u + ":8888/room/DataWebServicePort";
+			// 读取配置文件
+			String fp = System.getProperty("user.dir").replace("\\", "/") +"/../webapps/Ws2Ws/config.properties";
+			BufferedReader bufferedReader = new BufferedReader(new FileReader(fp));
+			properties.load(bufferedReader);
+			String ip = properties.getProperty("ip");
+			String port = properties.getProperty("port");
+			u = "http://" + ip + ":" + port + "/room/DataWebServicePort";
 		} catch (Exception e) {
-			// e.printStackTrace();
+			e.printStackTrace();
 		}
 		ws = new WebSrv(u, "http://sys.action.web.cw.com/");
 	}
